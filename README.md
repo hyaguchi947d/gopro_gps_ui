@@ -67,6 +67,10 @@ $ find <DIR> -name "*.MP4" -exec ./extract_gps.sh {} \;
 
 `samples/GH010085.json` is a sample gps data, including Inubo-saki, the east end of Chiba, Japan.
 
+![sample data](samples/GH010085.jpg)
+
+to activate this sample, just copy file into data dir. `cp samples/GH010085.json data/`
+
 ## start server
 
 ```
