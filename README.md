@@ -71,6 +71,25 @@ $ find <DIR> -name "*.MP4" -exec ./extract_gps.sh {} \;
 
 to activate this sample, just copy file into data dir. `cp samples/GH010085.json data/`
 
+### merge time-series files
+
+GoPro6 splits long movie file for each 3.8GB as following naming rule:
+
+```
+G{H,X}<NN><MMMM>.MP4
+
+N: index of file
+M: index of movie
+```
+
+`scripts/merge_gps.py` can merge splitted gps files into one.
+
+```
+$ merge_gps.py <DIR> <PREFIX, GH or GX> <POSTFIX, 4 digits numbers>
+```
+
+it will create `GHXX<MMMM>.json` to same dir as input.
+
 ## start server
 
 ```
