@@ -1,7 +1,7 @@
 # gopro_gps_ui
 
 - Author: Hiroaki Yaguchi, 947D Tech. Co. Ltd.
-- Lincese: MIT
+- License: MIT
 
 ## abstract
 
@@ -81,6 +81,6 @@ and access to
 
 http://localhost:3000/
 
-JSON files under `data` dir are automatically added to selector of right-bottom side.
+JSON files under `data` dir are automatically added to selector of left-bottom side.
 To show tracking locus, select file and press "add" button.
 Also "del" button can remove locus from map.
