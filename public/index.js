@@ -27,6 +27,12 @@ loadList();
 btn_add.addEventListener('click', function() {
   var filename = selector.options[selector.selectedIndex].value;
   console.log("ADD: " + filename);
+
+  if (polylines[filename]) {
+    console.log("already added.");
+    return;
+  }
+
   var xhr = new XMLHttpRequest();
   xhr.open("GET", location.href + "json/" + filename, true);
   xhr.onreadystatechange = function() {
@@ -52,5 +58,7 @@ btn_del.addEventListener('click', function() {
   if (polylines[filename]) {
     polylines[filename].removeFrom(gps_map);
     delete polylines[filename];
+  } else {
+    console.log("missing layer.");
   }
 });
