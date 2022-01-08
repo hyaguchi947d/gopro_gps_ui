@@ -13,7 +13,7 @@ https://leafletjs.com/
 Also this software requires gps information extracted from GoPro Hero 6 or later models.
 To extract information from mp4 this software uses following apps.
 
-https://github.com/stilldavid/gopro-utils
+https://github.com/JuanIrache/gopro-telemetry
 
 ## install
 
@@ -22,7 +22,6 @@ https://github.com/stilldavid/gopro-utils
 - nodejs
 - yarn
 - ffmpeg
-- golang
 
 ### install node pkg
 
@@ -30,27 +29,13 @@ https://github.com/stilldavid/gopro-utils
 $ yarn install
 ```
 
-### install gopro-utils
-
-```
-$ git clone https://github.com/stilldavid/gopro-utils.git
-```
-
-by the default gopro-utils path is set to under home dir.
-gopro-utils is written in golang, for ubuntu 16.04 run following.
-
-```
-$ sudo apt update
-$ sudo apt install golang-1.10
-$ export PATH=${PATH}:/usr/lib/go-1.10/bin
-$ go get github.com/stilldavid/gopro-utils/telemetry
-$ go get github.com/tkrajina/gpxgo/gpx
-```
-
 ## setup gps data
 
 The server will seek all JSON files under `data` dir.
 To extract gps json files, use `scripts/extract_gps.sh`.
+
+NOTE: please edit `gopro_utils_path` to the directory where this project is placed.
+default: `${HOME}/work/gopro_gps_ui`
 
 ```
 $ ./extract_gps.sh <filename>
@@ -65,11 +50,17 @@ $ find <DIR> -name "*.MP4" -exec ./extract_gps.sh {} \;
 
 ### sample data
 
-`samples/GH010085.json` is a sample gps data, including Inubo-saki, the east end of Chiba, Japan.
+`samples/GX040258.json` is a sample gps data, including near Byobu-ga-ura, the east end of Chiba, Japan.
 
-![sample data](samples/GH010085.jpg)
+![old sample data](samples/GX040258.jpg)
 
-to activate this sample, just copy file into data dir. `cp samples/GH010085.json data/`
+(old format): `samples/GH010085.json` is an old format sample gps data, including Inubo-saki, the east end of Chiba, Japan.
+
+![old sample data](samples/GH010085.jpg)
+
+to activate these samples, just copy or symlink file into data dir.
+
+ex) `cd data; ln -s ../samples/*.json ./`
 
 ### merge time-series files
 
@@ -103,3 +94,9 @@ http://localhost:3000/
 JSON files under `data` dir are automatically added to selector of left-bottom side.
 To show tracking locus, select file and press "add" button.
 Also "del" button can remove locus from map.
+
+## acknowledgement
+
+This software uses OpenStreetMap (https://www.openstreetmap.org/)
+© OpenStreetMap contributors, CC BY-SA 2.0
+Base map and data from OpenStreetMap and OpenStreetMap Foundation.

@@ -41,11 +41,22 @@ btn_add.addEventListener('click', function() {
       //console.log(gps);
     
       if (gps !== null) {
-        var lines = gps.data.map(function(pt) {
-          return [pt.lat, pt.lon];
-        });
-        let pl = L.polyline(lines, {color:'blue'}).addTo(gps_map);
-        polylines[filename] = pl;
+        if ("data" in gps) {
+          // old format
+          var lines = gps.data.map(function(pt) {
+            return [pt.lat, pt.lon];
+          });
+          let pl = L.polyline(lines, {color:'blue'}).addTo(gps_map);
+          polylines[filename] = pl;
+        } else {
+          // new format
+          var lines = gps["1"]["streams"]["GPS5"]["samples"].map(function(pt) {
+            return [pt["GPS (Lat.) [deg]"], pt["GPS (Long.) [deg]"]];
+          });
+          let pl = L.polyline(lines, {color:'blue'}).addTo(gps_map);
+          polylines[filename] = pl;
+        }
+
       }
     }
   };
