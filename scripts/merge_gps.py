@@ -13,7 +13,8 @@ if __name__ == "__main__":
     prefix = sys.argv[2]
     postfix = sys.argv[3]
 
-    gps_data = {"data":[]}
+    gps_data = {"1":{"streams":{"GPS5":{"samples":[]}}}}
+    # gps_data = {"data":[]}  # old format
 
     idx = 1
     filename = "%s/%s%02d%s.json" % (dirname, prefix, idx, postfix)
@@ -22,7 +23,9 @@ if __name__ == "__main__":
         print(filename)
         with open(filename) as f:
             data = json.load(f)
-            gps_data["data"].extend(filter(lambda gps : "gps_fix" in gps, data["data"]))
+            # gps_data["data"].extend(filter(lambda gps : "gps_fix" in gps, data["data"]))  # old format
+            if "GPS5" in data["1"]["streams"]:
+                gps_data["1"]["streams"]["GPS5"]["samples"].extend(data["1"]["streams"]["GPS5"]["samples"])
 
         idx += 1
         filename = "%s/%s%02d%s.json" % (dirname, prefix, idx, postfix)

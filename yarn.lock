@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+"@gmod/binary-parser@^1.3.5":
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/@gmod/binary-parser/-/binary-parser-1.4.1.tgz#2235dda7ed479dc6b11af0f07b509f291ea9f12a"
+  integrity sha512-288CLUbiZ/4N71LT9hmZkhZ2UpPMNDD28x8R7bJ+jS8Fd06ly5LOpbIBwsWgIgWDLB4fng18wCUq+FR55QCCJg==
+  dependencies:
+    long "^4.0.0"
+
 accepts@~1.3.7:
   version "1.3.7"
   resolved "https://registry.yarnpkg.com/accepts/-/accepts-1.3.7.tgz#531bc726517a3b2b41f850021c6cc15eaab507cd"
@@ -12,6 +19,11 @@ accepts@~1.3.7:
 array-flatten@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/array-flatten/-/array-flatten-1.1.1.tgz#9a5f699051b1e7073328f2a008968b64ea2955d2"
+
+atob@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
+  integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
 body-parser@1.19.0:
   version "1.19.0"
@@ -67,6 +79,13 @@ destroy@~1.0.4:
 ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
+
+egm96-universal@^1.0.2:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/egm96-universal/-/egm96-universal-1.1.0.tgz#7c0dd7d4b37b2c32d301f0e1d8621ef46d295eb2"
+  integrity sha512-LsrOHkIDyFIwRK2PnY3eBC8Efyn+rjzFagOGHFid1CbPee7rgAzezgiYDZodwG8yEggA23mVW0yNvUMkc7XsXw==
+  dependencies:
+    rfc4648 "^1.5.0"
 
 encodeurl@~1.0.2:
   version "1.0.2"
@@ -135,6 +154,15 @@ fresh@0.5.2:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/fresh/-/fresh-0.5.2.tgz#3d8cadd90d976569fa835ab1f8e4b23a105605a7"
 
+gopro-telemetry@^1.1.36:
+  version "1.1.36"
+  resolved "https://registry.yarnpkg.com/gopro-telemetry/-/gopro-telemetry-1.1.36.tgz#eb869a4205ddfe7a64da94f225b5918ab9fca9dc"
+  integrity sha512-AvCV7+Ju4B8k3zhNHQlakxbSMwHP1X2Fh+9ijI2Hm1XbkmTuxcgT779HRW9dQtp8LEecotkvRvHhWjubXzDjeQ==
+  dependencies:
+    "@gmod/binary-parser" "^1.3.5"
+    atob "^2.1.2"
+    egm96-universal "^1.0.2"
+
 http-errors@1.7.2, http-errors@~1.7.2:
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/http-errors/-/http-errors-1.7.2.tgz#4f5029cf13239f31036e5b2e55292bcfbcc85c8f"
@@ -158,6 +186,11 @@ inherits@2.0.3:
 ipaddr.js@1.9.0:
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/ipaddr.js/-/ipaddr.js-1.9.0.tgz#37df74e430a0e47550fe54a2defe30d8acd95f65"
+
+long@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/long/-/long-4.0.0.tgz#9a7b71cfb7d361a194ea555241c92f7468d5bf28"
+  integrity sha512-XsP+KhQif4bjX1kbuSiySJFNAehNxgLb6hPRGJ9QsUr8ajHkuXGdrHmFUTUUXhDwVX2R5bY4JNZEwbUiMhV+MA==
 
 media-typer@0.3.0:
   version "0.3.0"
@@ -234,6 +267,11 @@ raw-body@2.4.0:
     http-errors "1.7.2"
     iconv-lite "0.4.24"
     unpipe "1.0.0"
+
+rfc4648@^1.5.0:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/rfc4648/-/rfc4648-1.5.1.tgz#b0b16756e33d9de8c0c7833e94b28e627ec372a4"
+  integrity sha512-60e/YWs2/D3MV1ErdjhJHcmlgnyLUiG4X/14dgsfm9/zmCWLN16xI6YqJYSCd/OANM7bUNzJqPY5B8/02S9Ibw==
 
 safe-buffer@5.1.2:
   version "5.1.2"

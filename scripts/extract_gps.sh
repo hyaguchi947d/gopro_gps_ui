@@ -31,6 +31,12 @@ filehead=${filename%.*}
 binname=${filehead}.bin
 jsonname=${filehead}.json
 
+if test -e ${binname}; then
+  echo "${binname} already exists. skip."
+else
+  ffmpeg -y -i ${filename} -codec copy -map 0:3:handler_name:"GoPro MET" -f rawvideo ${binname}
+fi
+
 if [ ${force} -ne 1 ]; then
   if test -e ${jsonname}; then
     echo "${jsonname} already exists. skip."
@@ -38,7 +44,5 @@ if [ ${force} -ne 1 ]; then
   fi
 fi
 
-gopro_utils_path=${HOME}/gopro-utils/bin
-
-ffmpeg -y -i ${filename} -codec copy -map 0:3:handler_name:"GoPro MET" -f rawvideo ${binname}
-go run ${gopro_utils_path}/gopro2json/gopro2json.go -i ${binname} -o ${jsonname}
+gopro_utils_path=${HOME}/work/gopro_gps_ui
+node ${gopro_utils_path}/scripts/to_json.js ${binname} ${jsonname}
