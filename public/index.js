@@ -50,7 +50,9 @@ btn_add.addEventListener('click', function() {
           polylines[filename] = pl;
         } else {
           // new format
-          var lines = gps["1"]["streams"]["GPS5"]["samples"].map(function(pt) {
+          var lines = gps["1"]["streams"]["GPS5"]["samples"].filter(function(pt) {
+            return pt["GPS (Lat.) [deg]"] !== null && pt["GPS (Long.) [deg]"] !== null;
+          }).map(function(pt) {
             return [pt["GPS (Lat.) [deg]"], pt["GPS (Long.) [deg]"]];
           });
           let pl = L.polyline(lines, {color:'blue'}).addTo(gps_map);
